@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">📈 Dashboard</h2>
+
+        <div class="card-ui px-3 py-2 text-center">
+            <small style="opacity:0.7;">Market Status</small><br>
+            <b style="color:#22c55e;">● Open</b>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="card-ui mb-4">
+
+        <h5 class="mb-3">🔍 Search Stock</h5>
+
+        <form action="/predict" method="POST">
+            <div class="input-box">
+
+                <input type="text" name="nm"
+                       placeholder="Enter stock symbol (AAPL, TSLA, GOOG)"
+                       required>
+
+                <button class="btn-main">Predict →</button>
+
+            </div>
+        </form>
+
+        <!-- helper text -->
+        <small style="opacity:0.6;">
+            Example: AAPL (Apple), TSLA (Tesla)
+        </small>
+
+    </div>
+
+    <!-- KPI -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-3">
+            <div class="kpi">
+                <small>Total Models</small>
+                <h3>4</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="kpi">
+                <small>Accuracy</small>
+                <h3>92%</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="kpi">
+                <small>Predictions</small>
+                <h3>120+</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="kpi">
+                <small>System</small>
+                <h3 style="color:#22c55e;">Live</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- POPULAR STOCKS -->
+    <div class="card-ui">
+
+        <h5 class="mb-3">🔥 Popular Stocks</h5>
+
+        <div class="row g-3">
+
+            <!-- STOCK CARD -->
+            <div class="col-md-4">
+                <div class="card-ui stock-card d-flex justify-content-between align-items-center">
+                    <div>
+                        <b>AAPL</b><br>
+                        <small style="opacity:0.6;">Apple Inc.</small>
+                    </div>
+                    <span style="color:#22c55e;">+1.2%</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-ui stock-card d-flex justify-content-between align-items-center">
+                    <div>
+                        <b>TSLA</b><br>
+                        <small style="opacity:0.6;">Tesla</small>
+                    </div>
+                    <span style="color:#ef4444;">-0.8%</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-ui stock-card d-flex justify-content-between align-items-center">
+                    <div>
+                        <b>GOOG</b><br>
+                        <small style="opacity:0.6;">Google</small>
+                    </div>
+                    <span style="color:#22c55e;">+0.5%</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+/* STOCK CARD HOVER */
+.stock-card {
+    transition: 0.3s;
+}
+
+.stock-card:hover {
+    transform: translateY(-5px);
+}
+
+</style>
+
+{% endblock %}
